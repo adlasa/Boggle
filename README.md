@@ -3,10 +3,3 @@ Simple computer 5x5 Boggle player
 
 To run: python boggle.py 
 Input each block lowercase seperated by a space and new line for each row.
-Example:
-python boggle.py
-i i s a i
-t c n d e
-z r p e n
-i a h h t 
-er d e r j
