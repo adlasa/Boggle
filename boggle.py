@@ -38,7 +38,6 @@ if __name__ == "__main__":
     print("Please input board")
     makeBoard()
     print("\n")
-    complete = 0
     for i in range(5):
         for j in range(5):
             getWords(i, j, "", board)
