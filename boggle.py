@@ -1,6 +1,7 @@
 from nltk.corpus import words
 import pygtrie as trie
 
+print('Loading...')
 board = []
 combined = trie.CharTrie()
 for w in words.words():
@@ -24,7 +25,6 @@ def getWords(i, j, word, tmpBoard):
     if(combined.has_key(word) and len(word) >= 4):
         if(word not in answers):
             answers.add(word)
-            print(str(len(answers)) + ". " + word)
     tmpLetter = tmpBoard[i][j]
     tmpBoard[i][j] = "0"
     for k in [-1, 0, 1]:
@@ -42,10 +42,6 @@ if __name__ == "__main__":
     for i in range(5):
         for j in range(5):
             getWords(i, j, "", board)
-            complete += 1
-            print("~" + str(int(float(complete) / 25 * 100)) + "% Complete")
-    print("\nOrdered:")
-    i = 0
+    print('Found ' + str(len(answers)) + ' words\n')
     for word in sorted(answers):
-        i += 1
-        print(str(i) + ". " + word)
+        print(word)
