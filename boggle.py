@@ -2,10 +2,8 @@ from nltk.corpus import words
 import pygtrie as trie
 
 board = []
-dictionary = {}
 combined = trie.CharTrie()
 for w in words.words():
-    dictionary[w] = True
     combined[w] = True
 answers = set()
 
@@ -23,7 +21,7 @@ def getWords(i, j, word, tmpBoard):
     word += tmpBoard[i][j]
     if(not combined.has_subtrie(word) and not combined.has_key(word)):
         return
-    if(word in dictionary and len(word) >= 4):
+    if(combined.has_key(word) and len(word) >= 4):
         if(word not in answers):
             answers.add(word)
             print(str(len(answers)) + ". " + word)
